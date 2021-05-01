@@ -297,7 +297,7 @@ class CERES_EXPORT LoggerVoidify {
   LoggerVoidify() {}
   // This has to be an operator with a precedence lower than << but
   // higher than ?:
-  void operator&(const std::ostream& s) {}
+  void operator&(const std::ostream& /* s */) {}
 };
 
 // Log only if condition is met.  Otherwise evaluates to void.
@@ -343,7 +343,7 @@ class CERES_EXPORT LoggerVoidify {
 
 // Log a message and terminate.
 template <class T>
-void LogMessageFatal(const char* file, int line, const T& message) {
+void LogMessageFatal(const char* /* file */, int /* line */, const T& message) {
   MessageLogger((char*)__FILE__, __LINE__, "native", FATAL).stream() << message;
 }
 
